@@ -1,13 +1,16 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
+    <%# アカウント情報：左側 %>
     <div class='account-page__inner--left account-page__header'>
       <h2>Edit Account</h2>
       <h5>アカウントの編集</h5>
       <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn'%>
       <%= link_to "チャットページに戻る", :back, class: 'btn'%>
     </div>
+    <%# アカウント情報：右側 %>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: current_user, local: true do |f|%>
+        <%# アカウント情報：名前 %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :name%>
@@ -16,6 +19,7 @@
             <%= f.text_field :name, autofocus: true%>
           </div>
         </div>
+        <%# アカウント情報：メールアドレス %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :email%>
@@ -24,6 +28,7 @@
             <%= f.email_field :email%>
           </div>
         </div>
+        <%# アカウント情報：決定ボタン %>
         <div class='actions'>
           <%= f.submit "Update", class: 'btn'%>
         </div>
